@@ -1,0 +1,9 @@
+<!-- los items de la lista deberian tener la clase `editing` cuando se edita y `completed` cuando es marcada como completada -->
+<li [ngClass]="{ 'completed': chkField.value, 'editing': editando }">
+    <div class="view">
+        <input [formControl]="chkField" class="toggle" type="checkbox" [checked]="chkField.value">
+        <label (dblclick)="editar()">{{ todo.texto }}</label>
+        <button (click)="borrarTodo()" type="button" class="destroy"></button>
+    </div>
+    <input (blur)="terminarEdicion()" #txtInputFisico [formControl]="txtInput" class="edit" [value]="txtInput.value">
+</li>
